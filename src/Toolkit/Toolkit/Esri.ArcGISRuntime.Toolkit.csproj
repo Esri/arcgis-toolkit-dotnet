@@ -18,6 +18,14 @@
     <TargetPlatformMinVersion>$(UWPTargetPlatformMinVersion)</TargetPlatformMinVersion>
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == '$(AndroidTargetFramework)'">
+    <DefineConstants>$(DefineConstants);XAMARIN;_XAMARIN_ANDROID_</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == '$(iOSTargetFramework)'">
+    <DefineConstants>$(DefineConstants);XAMARIN;_XAMARIN_IOS_</DefineConstants>
+  </PropertyGroup>
   
   <PropertyGroup Condition="'$(TargetFramework)' == '$(NetCoreTargetFramework)' OR '$(TargetFramework)' == '$(NetWindowsTargetFramework)' OR '$(IsDotNetFramework)' == 'true'">
     <UseWpf>true</UseWpf>

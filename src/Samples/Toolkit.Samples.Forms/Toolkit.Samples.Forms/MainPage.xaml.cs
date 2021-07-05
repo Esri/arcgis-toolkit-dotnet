@@ -17,6 +17,14 @@ namespace Toolkit.Samples.Forms
         public MainPage()
         {
             InitializeComponent();
+
+            Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.ApiKey = "";
+
+            if (string.IsNullOrWhiteSpace(Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.ApiKey))
+            {
+                throw new InvalidOperationException("Please edit MainPage.xaml.cs to supply an API key");
+            }
+
             SamplesList.ItemsSource = SampleDatasource.Current.Samples;
         }
 
